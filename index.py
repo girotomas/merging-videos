@@ -1,3 +1,4 @@
+import os
 
 
 def is_melt_installed():
@@ -16,6 +17,11 @@ def file_already_exists(ouputPath):
 
 
 def merge_videos(filePaths, outputPath):
+	for path in filePaths:
+		if not os.path.isabs(path):
+			raise Exception(f'[merge-videos] filePaths should all be absolute. {path} is not absolute.')
+	if not os.path.isabs(outputPath):
+		raise Exception(f'[merge-videos] outputPath should be absolute. {outputPath} is not absolute.')
 	try:
 		print(f'[merge-videos] joining {" ".join(filePaths)} outputing to {outputPath}.')
 		if not is_melt_installed():
