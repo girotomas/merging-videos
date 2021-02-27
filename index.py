@@ -23,6 +23,9 @@ def run_bash_command(bashCommand):
 		print('error', error)
 
 def merge_videos(filePaths, texts_to_show, outputPath):
+	print(f'\n[merging-videos] Merging videos started with filePaths \n{filePaths}\n and texts_to_show: \n{texts_to_show}\n and outputPath \n{outputPath}')
+	if len(filePaths) != len(texts_to_show):
+		raise Exception(f'[merging-videos] Error: number of filePaths must equal number of texts_to_show. We got {len(filePaths)} filePaths and {len(texts_to_show)} texts_to_show.')
 	for path in filePaths:
 		if not os.path.isabs(path):
 			raise Exception(f'[merge-videos] filePaths should all be absolute. {path} is not absolute.')
