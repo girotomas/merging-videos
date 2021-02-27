@@ -1,5 +1,8 @@
 import unittest
-from .index import merge_videos
+if __name__ == '__main__':
+	from  index import merge_videos
+else:
+	from .index import merge_videos
 import os
 
 def current_directory():
