@@ -20,7 +20,9 @@ class TestPackage(unittest.TestCase):
 
     def test_merge(self):
         remove_output_file(outputPath)
-        self.assertTrue(merge_videos([ current_directory() + '/test_video_dont_delete.mp4', current_directory() + '/test_video_dont_delete2.mp4'], outputPath))
+        self.assertTrue(merge_videos([ current_directory() + '/test_video_dont_delete.mp4', current_directory() + '/test_video_dont_delete2.mp4'],
+        	['text for video 1', 'text for video 2'],
+         outputPath))
 
 if __name__ == '__main__':
     unittest.main()
